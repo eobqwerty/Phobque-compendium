@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHOBQUE COMPENDIUM</title>
+<meta name="description" content="The unofficially official compendium of Phobque: Eob, Leirkrakeegovnia, the Jaffle Shack, the Ninky Nonk, Snoobs, and everything wonderfully strange.">
+<style>
+:root{
+  --brick:#9f5d48; --brick2:#6e382d; --paper:#efe3c7; --ink:#29241e;
+  --gold:#c99a42; --cream:#fff8e8; --green:#66785a; --shadow:#241d18;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:#c9b38c;color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+  background-image:
+    radial-gradient(#00000012 1px,transparent 1px);
+  background-size:8px 8px;
+}
+header{
+  min-height:72vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:50px 20px;position:relative;overflow:hidden;
+  background:
+    linear-gradient(#0004,#0005),
+    repeating-linear-gradient(0deg,var(--brick) 0 38px,var(--brick2) 39px 42px),
+    repeating-linear-gradient(90deg,transparent 0 78px,#0002 79px 82px);
+  color:var(--cream);
+}
+header:before,header:after{
+  content:"";position:absolute;width:240px;height:240px;border:3px solid #ffffff22;
+  transform:rotate(18deg);border-radius:30px;
+}
+header:before{left:-80px;top:40px} header:after{right:-80px;bottom:-60px}
+.hero{max-width:900px;position:relative;z-index:2}
+.seal{
+  display:inline-block;border:3px solid var(--gold);padding:9px 17px;
+  letter-spacing:4px;font-size:.78rem;background:#241d1899;margin-bottom:20px;
+}
+h1{font-size:clamp(3.5rem,11vw,8rem);margin:0;letter-spacing:7px;line-height:.85;
+text-shadow:6px 6px 0 #0007}
+.subtitle{font-size:clamp(1.1rem,2.5vw,1.6rem);margin:25px auto;max-width:700px}
+nav{position:sticky;top:0;z-index:20;background:var(--shadow);border-bottom:3px solid var(--gold);
+display:flex;overflow:auto;white-space:nowrap;justify-content:center}
+nav a{color:var(--cream);padding:14px 18px;text-decoration:none;font-weight:bold;font-size:.9rem}
+nav a:hover{background:var(--brick)}
+main{max-width:1150px;margin:auto;padding:45px 18px}
+section{margin-bottom:65px}
+h2{font-size:2.4rem;margin:0 0 22px;border-bottom:3px solid var(--brick);padding-bottom:8px}
+h3{font-size:1.35rem;margin-bottom:8px}
+.lead{font-size:1.18rem;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{
+  background:var(--paper);border:2px solid #5b4938;padding:20px;
+  box-shadow:6px 6px 0 #4c392b55;position:relative;
+}
+.card:after{content:"";position:absolute;inset:5px;border:1px dashed #5b493855;pointer-events:none}
+.card>*{position:relative;z-index:1}
+.tag{display:inline-block;background:var(--brick);color:white;padding:4px 8px;font-size:.75rem;letter-spacing:1px}
+.bigquote{
+  background:var(--shadow);color:var(--cream);padding:30px;
+  font-size:1.5rem;text-align:center;border-left:8px solid var(--gold);
+}
+.timeline{border-left:4px solid var(--brick);margin-left:12px;padding-left:25px}
+.event{margin:0 0 25px}.event strong{color:var(--brick2)}
+table{width:100%;border-collapse:collapse;background:var(--paper)}
+th,td{padding:12px;border:1px solid #725a44;text-align:left}th{background:var(--brick);color:white}
+footer{background:var(--shadow);color:var(--cream);padding:40px 20px;text-align:center}
+footer a{color:#e7c56e}
+#secret{
+  display:none;background:#201a15;color:#ffe6a5;padding:20px;margin-top:18px;
+  border:2px solid var(--gold);text-align:center
+}
+button{font:inherit;cursor:pointer;border:2px solid var(--ink);background:var(--gold);
+padding:10px 15px;font-weight:bold}
+.small{font-size:.9rem;opacity:.8}
+@media(max-width:600px){header{min-height:62vh}nav{justify-content:flex-start}h2{font-size:2rem}}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="hero">
+    <div class="seal">EST. SOMEWHERE IN PHOBQUE</div>
+    <h1>PHOBQUE</h1>
+    <p class="subtitle">THE COMPENDIUM OF EVERYTHING</p>
+    <p>People, places, creatures, inventions, food, history, unexplained nonsense and the one silent man who somehow keeps appearing in all of it.</p>
+  </div>
+</header>
+
+<nav>
+  <a href="#about">PHOBQUE</a>
+  <a href="#people">PEOPLE</a>
+  <a href="#places">PLACES</a>
+  <a href="#creatures">CREATURES</a>
+  <a href="#machines">MACHINES</a>
+  <a href="#history">HISTORY</a>
+  <a href="#eob">EOB</a>
+  <a href="#creator">CREATOR</a>
+</nav>
+
+<main>
+<section id="about">
+  <h2>What is Phobque?</h2>
+  <p class="lead">Phobque is an old, strange brick-built country where ordinary life and completely ridiculous events coexist without anyone finding this particularly unusual.</p>
+  <div class="bigquote">“Nothing in Phobque is explained properly. This is considered a feature.”</div>
+  <div class="grid" style="margin-top:18px">
+    <div class="card"><span class="tag">CAPITAL</span><h3>Leirkrakeegovnia</h3><p>The capital of Phobque. Its name is substantially easier to pronounce if nobody asks you to pronounce it.</p></div>
+    <div class="card"><span class="tag">GOVERNMENT</span><h3>Mlepnos</h3><p>The silent clay ruler associated with Phobque's government and its many baffling decisions.</p></div>
+    <div class="card"><span class="tag">TRANSPORT</span><h3>Almost No Cars</h3><p>Phobque has no conventional car culture. Somehow, this has not stopped its transport system from becoming extremely weird.</p></div>
+  </div>
+</section>
+
+<section id="people">
+  <h2>People & Characters</h2>
+  <div class="grid">
+    <div class="card"><span class="tag">ICON</span><h3>Eob</h3><p>A silent, permanently cheerful mystery. Cone hat. Fishing vest. Snowboarder. Jaffle enthusiast. Potentially much more powerful than he realises.</p></div>
+    <div class="card"><span class="tag">RULER</span><h3>Mlepnos</h3><p>A silent clay figure at the centre of Phobque's strange political world.</p></div>
+    <div class="card"><span class="tag">CREATURES</span><h3>Snoobs</h3><p>Odd Phobque creatures whose exact biology, behaviour and purpose remain gloriously under-documented.</p></div>
+    <div class="card"><span class="tag">MYSTERY</span><h3>Walter the Wizard</h3><p>A name that sounds like it should come with a long explanation. The compendium is still investigating.</p></div>
+  </div>
+</section>
+
+<section id="places">
+  <h2>Places of Phobque</h2>
+  <div class="grid">
+    <div class="card"><h3>Leirkrakeegovnia</h3><p>The capital city and one of the principal centres of Phobque civilisation.</p></div>
+    <div class="card"><h3>Jaffle Shack</h3><p>A legendary establishment associated with Eob. Exact opening hours are subject to the mysterious laws of Phobque.</p></div>
+    <div class="card"><h3>The Bricklands</h3><p>The broader built environment of Phobque: old brick, peculiar architecture and an impressive resistance to normality.</p></div>
+  </div>
+</section>
+
+<section id="creatures">
+  <h2>Creatures & Beings</h2>
+  <div class="grid">
+    <div class="card"><h3>Snoobs</h3><p>One of Phobque's recognised creature groups. Their taxonomy is pending.</p></div>
+    <div class="card"><h3>The Eob Question</h3><p>Is Eob a creature, a citizen, a force of nature, or simply Eob? The compendium refuses to settle this.</p></div>
+    <div class="card"><h3>Unknown Species</h3><p>Phobque is almost certainly hiding more things than have currently been documented.</p></div>
+  </div>
+</section>
+
+<section id="machines">
+  <h2>Machines & Transport</h2>
+  <div class="grid">
+    <div class="card"><span class="tag">ICONIC</span><h3>Ninky Nonk</h3><p>A steam-powered flying tram. It is operated by a conductor named Beltus. Yes, flying.</p></div>
+    <div class="card"><span class="tag">CONDUCTOR</span><h3>Beltus</h3><p>The conductor of the Ninky Nonk and therefore one of the most important people in Phobque transport.</p></div>
+    <div class="card"><h3>Steam Transit</h3><p>Phobque demonstrates that if a tram can be made steam-powered, there is apparently no reason it should remain on the ground.</p></div>
+  </div>
+</section>
+
+<section id="history">
+  <h2>History of Phobque</h2>
+  <div class="timeline">
+    <div class="event"><strong>THE OLD BRICK ERA</strong><br>Phobque develops its distinctive brick-built identity.</div>
+    <div class="event"><strong>THE AGE OF MLEPNOS</strong><br>Mlepnos becomes a central silent presence in the country's story.</div>
+    <div class="event"><strong>THE NINKY NONK ERA</strong><br>Steam transport takes a decisive step away from the ground.</div>
+    <div class="event"><strong>THE AGE OF EOB</strong><br>Eob appears, smiles, says absolutely nothing, and becomes impossible to ignore.</div>
+    <div class="event"><strong>PRESENT DAY</strong><br>The compendium is being assembled. Much remains undocumented.</div>
+  </div>
+</section>
+
+<section id="eob">
+  <h2>Eob: The Complete File</h2>
+  <p class="lead">Eob is perhaps Phobque's most recognisable resident. He is silent, cheerful and strangely difficult to categorise.</p>
+  <table>
+    <tr><th>Field</th><th>Entry</th></tr>
+    <tr><td>Name</td><td>Eob</td></tr>
+    <tr><td>Home</td><td>Phobque</td></tr>
+    <tr><td>Known location</td><td>Jaffle Shack / various places in Phobque</td></tr>
+    <tr><td>Speech</td><td>None. Eob is silent.</td></tr>
+    <tr><td>Headwear</td><td>Signature cone hat</td></tr>
+    <tr><td>Clothing</td><td>Fishing vest, worn because Eob likes it</td></tr>
+    <tr><td>Favourite activity</td><td>Snowboarding</td></tr>
+    <tr><td>Teleportation</td><td>Not a known ability of ordinary Eob</td></tr>
+    <tr><td>Floating</td><td>Not a known ability of ordinary Eob</td></tr>
+    <tr><td>Unknown potential</td><td>Rumoured to be absurd. Eob does not appear to know about it.</td></tr>
+  </table>
+  <div class="card" style="margin-top:18px">
+    <h3>Eob's daily life</h3>
+    <p>Wake up. Put on cone hat. Exist silently. Possibly visit the Jaffle Shack. Go snowboarding. Encounter something inexplicable. Smile. Continue with life.</p>
+  </div>
+</section>
+
+<section id="creator">
+  <h2>About the Compendium</h2>
+  <div class="card">
+    <p class="lead">The Phobque Compendium is a fictional world archive created by <strong>George Roberts</strong>.</p>
+    <p>This website is designed as the central reference point for the world of Phobque. As new characters, places, creatures, inventions and historical events are created, they can be added here.</p>
+    <button onclick="document.getElementById('secret').style.display='block'">DO NOT PRESS</button>
+    <div id="secret">EOB HAS FOUND THIS PAGE.<br><br>He is smiling.</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>PHOBQUE COMPENDIUM</strong><br>
+  <span class="small">A fictional world archive • Created by George Roberts</span>
+</footer>
+
+</body>
+</html>
