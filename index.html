@@ -6,84 +6,141 @@
     <title>Phobque — The Compendium of Everything</title>
     <style>
         :root {
-            --bg-color: #1a1615;
-            --brick-red: #9e3d29;
-            --brick-dark: #5c2014;
-            --text-light: #f5ebe6;
-            --accent-gold: #dfa152;
-            --card-bg: #292220;
+            --brick: #9f5d48;
+            --brick2: #6e382d;
+            --paper: #efe3c7;
+            --ink: #29241e;
+            --gold: #c99a42;
+            --cream: #fff8e8;
+            --green: #66785a;
+            --shadow: #241d18;
+            --bg-1: #c9b38c;
+            --bg-2: #d9c9a2;
+            --card-panel: #f5ead0;
+            --dark-panel: #201a15;
         }
 
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: var(--bg-color);
-            color: var(--text-light);
             margin: 0;
-            padding: 0;
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            background: var(--bg-1);
+            background-image: radial-gradient(#00000012 1px, transparent 1px);
+            background-size: 8px 8px;
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, var(--brick-dark), #0f0c0b);
-            border-bottom: 6px solid var(--brick-red);
-            padding: 40px 20px;
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(#0004, #0005),
+                repeating-linear-gradient(0deg, var(--brick) 0 38px, var(--brick2) 39px 42px),
+                repeating-linear-gradient(90deg, transparent 0 78px, #0002 79px 82px);
+            color: var(--cream);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
+        header:before,
+        header:after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 3px solid #ffffff22;
+            transform: rotate(18deg);
+            border-radius: 30px;
+        }
+
+        header:before { left: -80px; top: 40px; }
+        header:after { right: -80px; bottom: -60px; }
+
+        .hero {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .seal {
+            display: inline-block;
+            border: 3px solid var(--gold);
+            padding: 9px 17px;
             letter-spacing: 4px;
-            color: var(--text-light);
-            text-shadow: 3px 3px 0px var(--brick-red);
+            font-size: 0.78rem;
+            background: #241d1899;
+            margin-bottom: 20px;
         }
 
-        header p {
-            margin: 10px 0 0 0;
+        h1 {
+            font-size: clamp(3.5rem, 11vw, 8rem);
+            margin: 0;
+            letter-spacing: 7px;
+            line-height: 0.85;
+            text-shadow: 6px 6px 0 #0007;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            margin: 25px auto;
+            max-width: 700px;
             font-style: italic;
-            color: var(--accent-gold);
-            font-size: 1.1rem;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 40px auto;
-            padding: 0 20px;
+            padding: 0 18px;
         }
 
         .alert-box {
-            background-color: #3b1610;
-            border-left: 5px solid var(--accent-gold);
-            padding: 15px 20px;
-            margin-bottom: 30px;
-            font-size: 0.95rem;
+            background: var(--dark-panel);
+            color: var(--cream);
+            border-left: 8px solid var(--gold);
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            font-size: 1rem;
+            box-shadow: 6px 6px 0 rgba(36, 29, 24, 0.55);
         }
 
-        /* Tabs Interface */
         .tabs-nav {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 30px;
-            border-bottom: 2px solid #3d3330;
-            padding-bottom: 15px;
+            border-bottom: 3px solid var(--brick);
+            padding-bottom: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(36, 29, 24, 0.96);
+            backdrop-filter: blur(2px);
         }
 
         .tab-btn {
-            background-color: var(--card-bg);
-            color: var(--text-light);
-            border: 2px solid var(--brick-red);
-            padding: 10px 20px;
+            background: var(--shadow);
+            color: var(--cream);
+            border: 2px solid var(--ink);
+            padding: 12px 18px;
             cursor: pointer;
-            font-family: inherit;
+            font: inherit;
             font-weight: bold;
+            letter-spacing: 0.04em;
             transition: all 0.2s ease;
         }
 
-        .tab-btn:hover, .tab-btn.active {
-            background-color: var(--brick-red);
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: var(--brick);
             color: white;
-            box-shadow: 3px 3px 0px var(--accent-gold);
+            box-shadow: 3px 3px 0 var(--gold);
             transform: translate(-2px, -2px);
         }
 
@@ -93,80 +150,128 @@
 
         .tab-content.active {
             display: block;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.35s ease;
         }
 
-        /* Lore Layout Elements */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
             margin-top: 20px;
         }
 
         .card {
-            background-color: var(--card-bg);
-            border: 3px solid #3d3330;
-            padding: 25px;
-            border-radius: 4px;
+            background: var(--paper);
+            border: 2px solid #5b4938;
+            padding: 20px;
+            box-shadow: 6px 6px 0 rgba(76, 57, 43, 0.35);
             position: relative;
         }
 
+        .card:after {
+            content: "";
+            position: absolute;
+            inset: 5px;
+            border: 1px dashed rgba(91, 73, 56, 0.3);
+            pointer-events: none;
+        }
+
+        .card > * { position: relative; z-index: 1; }
+
         .card h3 {
             margin-top: 0;
-            color: var(--accent-gold);
-            border-bottom: 1px dashed var(--brick-red);
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--brick2);
+            border-bottom: 2px solid rgba(158, 61, 41, 0.5);
             padding-bottom: 8px;
         }
 
         .card ul {
-            margin: 10px 0;
-            padding-left: 20px;
+            margin: 10px 0 0 0;
+            padding-left: 18px;
         }
 
         .card li {
             margin-bottom: 8px;
         }
 
+        .tag {
+            display: inline-block;
+            background: var(--brick);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
         .insignia-box {
-            text-align: center;
-            background: #151110;
-            border: 2px dashed #4a3e3a;
+            background: #201a15;
+            color: #ffe6a5;
+            border: 2px solid var(--gold);
             padding: 20px;
-            margin: 20px 0;
-            font-size: 0.85rem;
+            margin-top: 20px;
+            text-align: center;
         }
 
         .insignia-box h4 {
             margin: 0 0 10px 0;
-            color: var(--accent-gold);
+            color: var(--gold);
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            margin: 0 0 22px;
+            border-bottom: 3px solid var(--brick);
+            padding-bottom: 8px;
+        }
+
+        p {
+            margin: 0 0 14px 0;
+        }
+
+        strong {
+            color: var(--brick2);
         }
 
         footer {
-            text-align: center;
+            background: var(--shadow);
+            color: var(--cream);
             padding: 40px 20px;
+            text-align: center;
             margin-top: 60px;
-            border-top: 2px solid #3d3330;
-            font-size: 0.85rem;
-            color: #8c7670;
         }
 
-        footer a {
-            color: var(--accent-gold);
-            text-decoration: none;
+        footer p {
+            margin: 0;
+        }
+
+        footer small {
+            opacity: 0.8;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        @media (max-width: 600px) {
+            header { min-height: 62vh; }
+            .tabs-nav { justify-content: flex-start; }
+            h2 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>PHOBQUE</h1>
-        <p>The Compendium of Everything — Established Somewhere inside an Iceberg</p>
+        <div class="hero">
+            <div class="seal">EST. SOMEWHERE IN PHOBQUE</div>
+            <h1>PHOBQUE</h1>
+            <p class="subtitle">THE COMPENDIUM OF EVERYTHING</p>
+            <p>People, places, creatures, inventions, food, history, unexplained nonsense and the one silent man who somehow keeps appearing in all of it.</p>
+        </div>
     </header>
 
     <div class="container">
@@ -174,7 +279,6 @@
             <strong>COMPENDIUM NOTICE:</strong> Nothing in Phobque is explained properly. This is considered a core system feature. The country is verified to be 10,000,000,000,000,000,000,000,000,000,000,000,000,000,099,0900× larger than the omniverse. It is definitively a country, not a box of cereal.
         </div>
 
-        <!-- Navigation Tabs -->
         <div class="tabs-nav">
             <button class="tab-btn active" onclick="openTab(event, 'general')">General Info</button>
             <button class="tab-btn" onclick="openTab(event, 'eob')">The Eob File</button>
@@ -183,21 +287,23 @@
             <button class="tab-btn" onclick="openTab(event, 'law')">Supreme Law</button>
         </div>
 
-        <!-- Tab 1: General Info -->
         <div id="general" class="tab-content active">
             <h2>The Lay of the Land</h2>
             <p>Phobque is a massive, independent country located inside a giant melted sector of an Antarctic iceberg, though it curiously demonstrates absolutely no arctic climate. It has zero involvement in external wars or international alliances.</p>
-            
+
             <div class="grid">
                 <div class="card">
-                    <h3>The Capital</h3>
+                    <span class="tag">CAPITAL</span>
+                    <h3>Laerkrakeegovnia</h3>
                     <p><strong>Laerkrakeegovnia</strong> sits precisely at the center of the country. It is the buzzing core of civilization where advanced cosmic machinery and archaic brick structures clash perfectly.</p>
                 </div>
                 <div class="card">
+                    <span class="tag">LANDMARK</span>
                     <h3>The Sundial</h3>
                     <p>Located at the center of the capital instead of a standard transit dock. Every time the Sundial completes a full rotation, the entire country's gravity changes randomly between high and low. It frequently explodes, is magically put back together, and works perfectly fine at night—somehow.</p>
                 </div>
                 <div class="card">
+                    <span class="tag">GEOGRAPHY</span>
                     <h3>Territorial Dimensions</h3>
                     <p>Phobque's exact size remains a matter of scholarly debate. Recent measurements suggest it occupies more space than physically possible, leading to the hypothesis that geography operates under entirely different rules here.</p>
                 </div>
@@ -209,13 +315,13 @@
             </div>
         </div>
 
-        <!-- Tab 2: The Eob File -->
         <div id="eob" class="tab-content">
             <h2>Subject: Eob</h2>
             <p>The silent, permanently cheerful mystery walking among us. Eob behaves like a standard resident playing the world on "survival mode," completely ignoring the fact that his hidden creative console potential is entirely boundless.</p>
-            
+
             <div class="grid">
                 <div class="card">
+                    <span class="tag">PROFILE</span>
                     <h3>Uniform & Preferences</h3>
                     <ul>
                         <li><strong>Headwear:</strong> One signature traffic cone hat.</li>
@@ -224,98 +330,126 @@
                         <li><strong>Communication:</strong> Exclusively through silent gestures and knowing smiles.</li>
                     </ul>
                 </div>
+
                 <div class="card">
+                    <span class="tag">VESSEL</span>
                     <h3>The Etrusken Cork</h3>
                     <p>Eob's personal ship. He personally opened a full neutron star, hollowed out its super-dense core, and plated it using nano-titanium infused with bronzore squarks. It is strictly the size of a Jurassic Park gyrosphere. No bigger, no smaller.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">FOOD</span>
                     <h3>The Jaffle Mystery</h3>
                     <p>Eob's preferred food item. A perfectly toasted jaffle, consumed at indeterminate times throughout the day. Whether Eob toasts them himself or they appear is a matter requiring further investigation.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Tab 3: Snoob Registry -->
         <div id="snoobs" class="tab-content">
             <h2>Snoob Wildlife & The Market</h2>
             <p>Snoobs are rectangular, brick-shaped domesticated animals kept strictly as pets or farm cattle. Essential Canon Warning: There is only one Snoob species. Do not invent separate breeds like 'Highland' or 'Pocket' Snoobs.</p>
-            
+
             <div class="grid">
                 <div class="card">
+                    <span class="tag">BIOLOGY</span>
                     <h3>Biology & Behavior</h3>
                     <p>Snoobs possess a rigid, straight internal neuro-respirator bone. They exhibit precisely three known behaviors: sleeping, rolling over, and occasionally piling into neat stacks. They make no sound whatsoever.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">HAZARD</span>
                     <h3>Harvest Hazards</h3>
                     <p>Harvest season occurs whenever a Snoob feels like it. Farmers must wave a sharp sickle over them while actively dodging live landmines hidden in the rolling fields. They yield zero wool, meat, or leather. Why they are farmed remains a mystery unsolved.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">ECONOMY</span>
                     <h3>The Snoob Index (SAX)</h3>
                     <p>Every individual Snoob represents a financial share on the Phobque stock market. Fast falling over indicates high market confidence. Snoobs vote on monetary policy by facing either left or right. Harming a Snoob results in life sentences in timeout.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Tab 4: Infrastructure & Landmarks -->
         <div id="infrastructure" class="tab-content">
             <h2>The Corporate Landscape</h2>
             <p>Phobque's vast highway system supports an odd variety of massive industrial factories and local establishments that coexist without question.</p>
-            
+
             <div class="grid">
                 <div class="card">
+                    <span class="tag">TRANSIT</span>
                     <h3>The Transit Network</h3>
                     <p>The Ninky Nonk remains the primary aerial transport. Beltus operates it with unwavering dedication. Standard rail exists but is considered inefficient compared to floating steam-powered trams.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">FOOD HALL</span>
                     <h3>The Jaffle Shack</h3>
                     <p>A legendary establishment synonymous with Eob. Opening hours are subject to the mysterious laws of Phobque time. Serves exclusively toasted jaffles of extraordinary quality.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">INDUSTRY</span>
                     <h3>Industrial Parks</h3>
                     <p>Phobque maintains massive manufacturing zones where products of unknown purpose are created with unrelenting efficiency. Exports remain unconfirmed.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">QUARRY</span>
                     <h3>The Brick Quarries</h3>
                     <p>Ancient excavation sites supplying the eternal brick shortage. No shortage has ever actually been confirmed, but the quarries operate regardless. Job security is excellent.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">GOVERNMENT</span>
                     <h3>Mlepnos Palace</h3>
                     <p>The seat of Mlepnos, the silent clay ruler. Entry requires appointment. Appointments are handled by someone who may or may not exist.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">ORRERY</span>
                     <h3>The Exploding Sundial</h3>
                     <p>A structural landmark that operates as both a timekeeping device and gravitational anomaly. Regular maintenance includes complete reconstruction following weekly detonations.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Tab 5: Supreme Law -->
         <div id="law" class="tab-content">
             <h2>The Supreme Laws of Phobque</h2>
             <p>Phobque operates under a system of laws that are simultaneously enforced and entirely ignored, depending on the day of the week and the phase of the moon.</p>
-            
+
             <div class="grid">
                 <div class="card">
+                    <span class="tag">1</span>
                     <h3>The First Principle</h3>
                     <p>Nothing requires explanation. If something demands explanation, you are asking the wrong question in the wrong place at the wrong time. Repeat as necessary.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">2</span>
                     <h3>The Snoob Protection Act</h3>
                     <p>Harming, injuring, or inconveniencing a Snoob results in mandatory timeout sentences ranging from one hour to life imprisonment. Exact sentencing depends on the Snoob's voting pattern.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">3</span>
                     <h3>The Silence Covenant</h3>
                     <p>Eob's right to remain silent is guaranteed by constitutional decree. Additionally, nobody is allowed to ask why he remains silent. This is law.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">4</span>
                     <h3>Gravity Fluctuation Protocol</h3>
                     <p>When gravity shifts due to the Sundial, all citizens are required to act as if nothing unusual is happening. Panic is discouraged. Commenting on the sudden weightlessness violates Code Section 4-B.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">5</span>
                     <h3>The Jaffle Doctrine</h3>
                     <p>The toasted jaffle is recognized as a legitimate form of currency in select establishments. Acceptance rates vary wildly. Disputes are settled by consensus or rock-paper-scissors.</p>
                 </div>
+
                 <div class="card">
+                    <span class="tag">6</span>
                     <h3>The Mlepnos Decree</h3>
                     <p>All major decisions are made by Mlepnos through methods unknown to the general population. Citizens are instructed to simply accept outcomes as if they make sense. They rarely do.</p>
                 </div>
@@ -336,15 +470,12 @@
 
     <script>
         function openTab(evt, tabName) {
-            // Hide all tab contents
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(tab => tab.classList.remove('active'));
 
-            // Remove active class from all buttons
             const tabBtns = document.querySelectorAll('.tab-btn');
             tabBtns.forEach(btn => btn.classList.remove('active'));
 
-            // Show the selected tab
             document.getElementById(tabName).classList.add('active');
             evt.currentTarget.classList.add('active');
         }
